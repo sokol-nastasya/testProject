@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Profiles</title>
+{% endblock %}
+
+{% block body %}
+    <div class="contenier">
+        <div class="col-xs-12">
+            {%  if messages %}
+                {% for message in messages %}
+                    <div class="" role="alert">
+                    <center>{{ message }}</center>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <h1>Profile</h1>
+        <p>Логин: {{ user }}</p>
+        <p>Имя: {{ user.first_name }}</p>
+        <p>Фамилия: {{ user.last_name }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Номер телефона: {{ user.userprofile.phone }}</p>
+        <p>Должность: {{ user.userprofile.position }}</p>
+        <p>Город: {{ user.userprofile.city }}</p>
+        {% if user.userprofile.image %}
+            <img src="{{ user.userprofile.image.url }}" width="248">
+        {% endif %}
+    </div>
+{% endblock %}

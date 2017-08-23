@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Profiles</title>
+{% endblock %}
+
+{% block body %}
+    <div class="contenier">
+       <form method="post">
+           {% csrf_token %}
+           {{ form1.as_p }}
+           {{ form2.as_p }}
+           <button type="submit">Принять</button>
+       </form>
+    </div>
+{% endblock %}
